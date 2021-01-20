@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import Tabs from "./components/Tabs";
+import Tab from "./components/Tab";
+import Dropdown from "./components/Dropdown";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="bg-pink-100">
+      {/* <Tabs class="mb-4">
+        <Tab title={"Overview"}>Overview</Tab>
+        <Tab title={"About"}>About</Tab>
+      </Tabs> */}
+      <div className="m-16">
+        <Dropdown trigger={<Trigger />} body={<Body />}></Dropdown>
+      </div>
     </div>
   );
 }
+
+const Trigger = () => (
+  <div className="w-24 bg-white shadow-xl rounded text-lg font-bold p-2 text-center cursor-pointer">
+    Trigger
+  </div>
+);
+
+const Body = () => "Body";
 
 export default App;
