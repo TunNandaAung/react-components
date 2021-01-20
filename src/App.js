@@ -1,5 +1,3 @@
-import Tabs from "./components/Tabs";
-import Tab from "./components/Tab";
 import Dropdown from "./components/Dropdown";
 
 function App() {
@@ -22,6 +20,6 @@ const Trigger = () => (
   </div>
 );
 
-const Body = () => "Body";
+const Body = () => <div className="text-center p-2">Body</div>;
 
 export default App;

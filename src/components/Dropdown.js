@@ -1,9 +1,8 @@
 import React, { useState } from "react";
+import { CSSTransition } from "react-transition-group";
 
-function Dropdown(props) {
+const Dropdown = (props) => {
   const [isOpen, setIsOpen] = useState(false);
-
-  const { children } = props;
 
   return (
     <div className="dropdown relative" align="right" width="400px">
@@ -14,15 +13,22 @@ function Dropdown(props) {
       >
         {props.trigger}
       </div>
-      {isOpen ? (
-        <ul className="origin-top-right absolute right-0 mt-2 w-48 rounded-md bg-white shadow-lg z-50">
+      <CSSTransition
+        in={isOpen}
+        classNames="pop-out"
+        timeout={300}
+        unmountOnExit
+      >
+        <ul
+          className={
+            "origin-top-right absolute right-0 mt-2 w-48 rounded-md bg-white shadow-lg z-50"
+          }
+        >
           {props.body}
         </ul>
-      ) : (
-        <></>
-      )}
+      </CSSTransition>
     </div>
   );
-}
+};
 
 export default Dropdown;

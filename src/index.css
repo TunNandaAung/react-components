@@ -5,3 +5,44 @@
 body {
   @apply bg-pink-100;
 }
+
+.menu-primary-enter {
+  @apply opacity-0 translate-y-4;
+}
+.menu-primary-enter-active {
+  @apply transition-all ease-out duration-300;
+}
+
+.menu-primary-enter-done {
+  @apply opacity-100 translate-y-0;
+}
+
+.menu-primary-exit {
+  @apply opacity-100 translate-y-0;
+}
+
+.menu-primary-exit-done {
+  @apply opacity-0 translate-y-4;
+}
+
+.menu-primary-exit-active {
+  @apply transition-all ease-out duration-300;
+}
+
+.pop-out-enter {
+  opacity: 0;
+  transform: scale(0.9);
+}
+.pop-out-enter-active {
+  opacity: 1;
+  transform: translateX(0);
+  transition: opacity 300ms, transform 300ms;
+}
+.pop-out-exit {
+  opacity: 1;
+}
+.pop-out-exit-active {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 300ms, transform 300ms;
+}
