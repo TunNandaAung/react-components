@@ -19,10 +19,10 @@ function App() {
       </div>
       <div className="flex items-center justify-center mt-16">
         <button
-          className="w-24 bg-white shadow-xl rounded text-lg font-bold p-2 text-center cursor-pointer"
+          className="w-48 bg-white shadow-xl rounded text-lg font-bold p-2 text-center cursor-pointer"
           onClick={() => setShow(true)}
         >
-          Trigger
+          Show Modal
         </button>
       </div>
       <ConfirmModal show={show} dismiss={dismiss}></ConfirmModal>
