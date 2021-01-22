@@ -27,7 +27,7 @@ function Tabs(props) {
             <li
               className={
                 "px-4 py-2 bg-transparent flex-1 cursor-pointer hover:bg-blue-200 " +
-                (tab.props.isActive
+                (tab === activeTab
                   ? "border-b-2 border-blue-400 rounded-none"
                   : "rounded")
               }
@@ -37,10 +37,10 @@ function Tabs(props) {
               <span
                 className={
                   "focus:outline-none text-lg text-gray-700 " +
-                  (tab.props.isActive ? "font-bold text-blue-400" : "")
+                  (tab === activeTab ? "font-bold text-blue-400" : "")
                 }
                 role="tab"
-                aria-selected={tab.props.isActive}
+                aria-selected={tab === activeTab}
               >
                 {tab.props.title}
               </span>

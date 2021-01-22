@@ -27,13 +27,15 @@ function App() {
           Show Modal
         </button>
       </div>
-      <div className="mt-16 max-w-xl w-full">
-        <Tabs>
-          <Tab title="Test" isActive={true}>
-            This is test
-          </Tab>
-          <Tab title="Test Again">Yet another test</Tab>
-        </Tabs>
+      <div className="mt-16 max-w-xl w-full mx-auto">
+        <div className="bg-white rounded-lg">
+          <Tabs>
+            <Tab title="Test" isActive={true}>
+              This is test
+            </Tab>
+            <Tab title="Test Again">Yet another test</Tab>
+          </Tabs>
+        </div>
       </div>
       <ConfirmModal show={show} dismiss={dismiss}></ConfirmModal>
     </div>
