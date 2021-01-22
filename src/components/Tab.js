@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 
-function Tab(props) {
-  const [isActive, setIsActive] = useState(null);
+function Tab({ children, isActive = false }) {
+  const [active, setActive] = useState(null);
 
-  useEffect(() => setIsActive(props.isActive));
+  useEffect(() => setActive(isActive), [isActive]);
 
   return (
-    <div role="tabpanel" className={isActive ? "block" : "hidden"}>
-      {props.children}
+    <div role="tabpanel" className={active ? "block" : "hidden"}>
+      {children}
     </div>
   );
 }

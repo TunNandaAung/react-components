@@ -5,20 +5,19 @@ function Tabs(props) {
   const [activeTab, setActiveTab] = useState(null);
 
   useEffect(() => {
-    setTabs(props.children);
-    setInitialActiveTab();
-  });
+    let tabs = React.Children.toArray(props.children).filter(
+      (child) => child.type.name === "Tab"
+    );
+    setTabs(tabs);
+    setActiveTab(tabs.find((tab) => tab.props.isActive) || tabs[0]);
+  }, [props.children]);
 
-  //   useEffect(() => {
-  //     let newTabs = tabs.map((tab) => (tab.isActive = tab == activeTab));
-  //     setTabs(newTabs);
-  //     // this.$emit("updated", this.activeTab.title.toLowerCase());
-  //     // props.updateTab(activeTab.title.toLowerCase());
-  //   }, [activeTab]);
-
-  const setInitialActiveTab = () => {
-    setActiveTab(tabs.find((tab) => tab.active) || tabs[0]);
-  };
+  // useEffect(() => {
+  //   let newTabs = tabs.map((tab) => (tab.props.isActive = tab == activeTab));
+  //   setTabs(newTabs);
+  //   this.$emit("updated", this.activeTab.title.toLowerCase());
+  //   props.updateTab(activeTab.title.toLowerCase());
+  // }, [activeTab]);
 
   return (
     <div>
@@ -27,9 +26,9 @@ function Tabs(props) {
           tabs.map((tab, index) => (
             <li
               className={
-                "px-4 py-2 bg-transparent flex-1 cursor-pointer hover:bg-gray-200" +
-                (tab.isActive
-                  ? "border-b-2 border-blue-600 rounded-none"
+                "px-4 py-2 bg-transparent flex-1 cursor-pointer hover:bg-blue-200 " +
+                (tab.props.isActive
+                  ? "border-b-2 border-blue-400 rounded-none"
                   : "rounded")
               }
               key={index}
@@ -37,19 +36,23 @@ function Tabs(props) {
             >
               <span
                 className={
-                  "focus:outline-none text-lg text-gray-700" +
-                  (tab.isActive ? "font-bold-text-blue-600" : "")
+                  "focus:outline-none text-lg text-gray-700 " +
+                  (tab.props.isActive ? "font-bold text-blue-400" : "")
                 }
                 role="tab"
-                aria-selected={tab.isActive}
+                aria-selected={tab.props.isActive}
               >
-                {tab.title}
+                {tab.props.title}
               </span>
             </li>
           ))}
       </ul>
-
-      {props.children}
+      {/* {React.cloneElement(props.children, { isActive: tab == activeTab})} */}
+      {React.Children.map(props.children, (child) =>
+        React.cloneElement(child, {
+          isActive: child.props.title === activeTab?.props.title,
+        })
+      )}
     </div>
   );
 }

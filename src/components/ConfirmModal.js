@@ -3,7 +3,6 @@ import ModalDialog from "./ModalDialog";
 
 const ConfirmModal = (props) => {
   const dismiss = () => {
-    console.log("CALLED");
     props.dismiss();
   };
 

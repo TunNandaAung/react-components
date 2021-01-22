@@ -1,6 +1,8 @@
 import Dropdown from "./components/Dropdown";
 import React, { useState } from "react";
 import ConfirmModal from "./components/ConfirmModal";
+import Tabs from "./components/Tabs";
+import Tab from "./components/Tab";
 
 function App() {
   const [show, setShow] = useState(false);
@@ -24,6 +26,14 @@ function App() {
         >
           Show Modal
         </button>
+      </div>
+      <div className="mt-16 max-w-xl w-full">
+        <Tabs>
+          <Tab title="Test" isActive={true}>
+            This is test
+          </Tab>
+          <Tab title="Test Again">Yet another test</Tab>
+        </Tabs>
       </div>
       <ConfirmModal show={show} dismiss={dismiss}></ConfirmModal>
     </div>
