@@ -3,6 +3,10 @@ import React, { useState } from "react";
 import ConfirmModal from "./components/ConfirmModal";
 import Tabs from "./components/Tabs";
 import Tab from "./components/Tab";
+import AccordionList from "./components/accordion/AccordionList";
+import AccordionItem from "./components/accordion/AccordionItem";
+import AccordionContent from "./components/accordion/AccordionContent";
+import AccordionHeader from "./components/accordion/AccordionHeader";
 
 function App() {
   const [show, setShow] = useState(false);
@@ -36,6 +40,28 @@ function App() {
             <Tab title="Test Again">Yet another test</Tab>
           </Tabs>
         </div>
+      </div>
+      <div className="mt-16 max-w-xl w-full mx-auto">
+        <AccordionList>
+          <AccordionItem>
+            <AccordionHeader>Section 1</AccordionHeader>
+            <AccordionContent>
+              Mauris mauris ante, blandit et, ultrices a.
+            </AccordionContent>
+          </AccordionItem>
+          <AccordionItem>
+            <AccordionHeader>Section 2</AccordionHeader>
+            <AccordionContent>
+              Sed non urna. Donec et ante. Phasellus eu ligula.
+            </AccordionContent>
+          </AccordionItem>
+          <AccordionItem>
+            <AccordionHeader>Section 3</AccordionHeader>
+            <AccordionContent>
+              Nam enim risus, molestie et, porta ac, aliquam ac.
+            </AccordionContent>
+          </AccordionItem>
+        </AccordionList>
       </div>
       <ConfirmModal show={show} dismiss={dismiss}></ConfirmModal>
     </div>
