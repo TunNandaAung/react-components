@@ -35,7 +35,7 @@ body {
 }
 .pop-out-enter-active {
   opacity: 1;
-  transform: translateX(0);
+  transform: translateX(50%);
   transition: opacity 300ms, transform 300ms;
 }
 .pop-out-exit {

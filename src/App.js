@@ -20,8 +20,12 @@ function App() {
         <Tab title={"Overview"}>Overview</Tab>
         <Tab title={"About"}>About</Tab>
       </Tabs> */}
-      <div className="m-16">
-        <Dropdown trigger={<Trigger />} body={<Body />}></Dropdown>
+      <div className="m-16 max-w-xl w-full mx-auto">
+        <Dropdown
+          trigger={<Trigger />}
+          body={<Body />}
+          align={"center"}
+        ></Dropdown>
       </div>
       <div className="flex items-center justify-center mt-16">
         <button
@@ -69,7 +73,7 @@ function App() {
 }
 
 const Trigger = () => (
-  <div className="w-24 bg-white shadow-xl rounded text-lg font-bold p-2 text-center cursor-pointer">
+  <div className="w-24 bg-white shadow-xl rounded text-lg font-bold p-2 text-center cursor-pointer relative">
     Trigger
   </div>
 );
