@@ -7,6 +7,7 @@ import AccordionList from "./components/accordion/AccordionList";
 import AccordionItem from "./components/accordion/AccordionItem";
 import AccordionContent from "./components/accordion/AccordionContent";
 import AccordionHeader from "./components/accordion/AccordionHeader";
+import ImagePicker from "./components/ImagePicker";
 
 function App() {
   const [show, setShow] = useState(false);
@@ -66,6 +67,10 @@ function App() {
             </AccordionContent>
           </AccordionItem>
         </AccordionList>
+      </div>
+
+      <div className="my-16 max-w-xl w-full mx-auto">
+        <ImagePicker name={"photo"}></ImagePicker>
       </div>
       <ConfirmModal show={show} dismiss={dismiss}></ConfirmModal>
     </div>
