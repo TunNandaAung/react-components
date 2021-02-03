@@ -1,6 +1,14 @@
-# Getting Started with Create React App
+# React Hooks Components
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Sample resuable React components built with [React Hooks](https://reactjs.org/docs/hooks-intro.html) and [TailwindCSS](https://tailwindcss.com)
+
+## Components List
+
+- Dropdown
+- Tabs
+- Modal
+- Accordion List
+- Image Picker
 
 ## Available Scripts
 
