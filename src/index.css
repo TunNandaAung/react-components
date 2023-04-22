@@ -7,26 +7,26 @@ body {
 }
 
 .menu-primary-enter {
-  @apply opacity-0 translate-y-4;
+  @apply translate-y-4 opacity-0;
 }
 .menu-primary-enter-active {
-  @apply transition-all ease-out duration-300;
+  @apply transition-all duration-300 ease-out;
 }
 
 .menu-primary-enter-done {
-  @apply opacity-100 translate-y-0;
+  @apply translate-y-0 opacity-100;
 }
 
 .menu-primary-exit {
-  @apply opacity-100 translate-y-0;
+  @apply translate-y-0 opacity-100;
 }
 
 .menu-primary-exit-done {
-  @apply opacity-0 translate-y-4;
+  @apply translate-y-4 opacity-0;
 }
 
 .menu-primary-exit-active {
-  @apply transition-all ease-out duration-300;
+  @apply transition-all duration-300 ease-out;
 }
 
 .pop-out-enter {
@@ -44,5 +44,22 @@ body {
 .pop-out-exit-active {
   opacity: 0;
   transform: scale(0.9);
+  transition: opacity 300ms, transform 300ms;
+}
+
+.slide-down-enter {
+  opacity: 0;
+}
+.slide-down-enter-active {
+  opacity: 1;
+  transform: translateY(10px);
+  transition: opacity 300ms, transform 300ms;
+}
+.slide-down-exit {
+  opacity: 1;
+}
+.slide-down-exit-active {
+  opacity: 0;
+  transform: translateY(0px);
   transition: opacity 300ms, transform 300ms;
 }

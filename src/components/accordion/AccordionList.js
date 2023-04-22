@@ -1,9 +1,9 @@
-import React from "react";
+import React from 'react'
 
-const AccordionList = (props) => {
+const AccordionList = props => {
   return (
-    <div className="shadow-box border-t boder-gray-400">{props.children}</div>
-  );
-};
+    <div className="shadow-box boder-gray-400 border-t">{props.children}</div>
+  )
+}
 
-export default AccordionList;
+export default AccordionList

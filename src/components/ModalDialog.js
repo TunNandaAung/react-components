@@ -1,39 +1,39 @@
-import React, { useEffect, useState } from "react";
-import { Transition } from "@headlessui/react";
+import React, { useEffect, useState } from 'react'
+import { Transition } from '@headlessui/react'
 
-const ModalDialog = (props) => {
-  const [show, setShow] = useState(false);
+const ModalDialog = props => {
+  const [show, setShow] = useState(false)
 
   useEffect(() => {
-    setShow(props.show);
-  }, [props.show]);
+    setShow(props.show)
+  }, [props.show])
 
   useEffect(() => {
     show
-      ? document.body.style.setProperty("overflow", "hidden")
-      : document.body.style.removeProperty("overflow");
-  }, [show]);
+      ? document.body.style.setProperty('overflow', 'hidden')
+      : document.body.style.removeProperty('overflow')
+  }, [show])
 
   useEffect(() => {
-    const escapeHandler = (e) => {
-      if (e.key === "Escape" && show) {
-        dismiss();
+    const escapeHandler = e => {
+      if (e.key === 'Escape' && show) {
+        dismiss()
       }
-    };
-    document.addEventListener("keydown", escapeHandler);
+    }
+    document.addEventListener('keydown', escapeHandler)
 
     return function cleanup() {
-      document.removeEventListener("keydown", escapeHandler);
-    };
-  });
+      document.removeEventListener('keydown', escapeHandler)
+    }
+  })
 
   const dismiss = () => {
-    props.dismiss();
-  };
+    props.dismiss()
+  }
 
   return (
     <Transition show={show}>
-      <div className="fixed bottom-0 inset-0 px-4 pb-4 flex flex-col items-center justify-center sm:inset-0 sm:flex sm:items-center sm:justify-center">
+      <div className="fixed inset-0 bottom-0 flex flex-col items-center justify-center px-4 pb-4 sm:inset-0 sm:flex sm:items-center sm:justify-center">
         <Transition.Child
           enterFrom="opacity-0"
           enter="transition-opacity ease-out duration-300"
@@ -56,7 +56,7 @@ const ModalDialog = (props) => {
           leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
         >
           <div
-            className="inline-block bg-white rounded-lg text-left overflow-hidden shadow-xl transition-all transform sm:my-8 sm:align-middle sm:max-w-lg sm:w-full"
+            className="inline-block transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:align-middle"
             role="dialog"
             aria-modal="true"
             aria-labelledby="modal-headline"
@@ -66,7 +66,7 @@ const ModalDialog = (props) => {
         </Transition.Child>
       </div>
     </Transition>
-  );
-};
+  )
+}
 
-export default ModalDialog;
+export default ModalDialog

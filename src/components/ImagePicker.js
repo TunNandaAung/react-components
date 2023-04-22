@@ -1,32 +1,28 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef } from 'react'
 
-const ImagePicker = (props) => {
-  const inputRef = useRef();
-  const [imagePreview, setImagePreview] = useState(null);
+const ImagePicker = props => {
+  const inputRef = useRef()
+  const [imagePreview, setImagePreview] = useState(null)
 
   const onChange = () => {
-    const reader = new FileReader();
+    const reader = new FileReader()
 
-    reader.onload = (e) => {
-      setImagePreview(e.target.result);
-    };
+    reader.onload = e => {
+      setImagePreview(e.target.result)
+    }
 
-    reader.readAsDataURL(inputRef.current.files[0]);
-  };
+    reader.readAsDataURL(inputRef.current.files[0])
+  }
 
   return (
     <div>
       {imagePreview && (
-        <img
-          src={imagePreview}
-          alt="Photo Preview"
-          className="my-4 rounded-lg"
-        />
+        <img src={imagePreview} alt="Preview" className="my-4 rounded-lg" />
       )}
       <div className="flex justify-between">
         <button
           type="button"
-          className="shadow bg-blue-600 hover:bg-blue-700 focus:shadow-outline focus:outline-none text-white py-2 px-4 rounded-lg"
+          className="focus:shadow-outline rounded-lg bg-blue-600 px-4 py-2 text-white shadow hover:bg-blue-700 focus:outline-none"
           onClick={() => inputRef.current.click()}
         >
           Select a photo
@@ -34,7 +30,7 @@ const ImagePicker = (props) => {
         {imagePreview && (
           <button
             type="button"
-            className="shadow bg-blue-600 hover:bg-blue-700 focus:shadow-outline focus:outline-none text-white py-2 px-4 rounded-lg"
+            className="focus:shadow-outline rounded-lg bg-blue-600 px-4 py-2 text-white shadow hover:bg-blue-700 focus:outline-none"
             onClick={() => setImagePreview(null)}
           >
             Remove
@@ -51,7 +47,7 @@ const ImagePicker = (props) => {
         onChange={onChange}
       />
     </div>
-  );
-};
+  )
+}
 
-export default ImagePicker;
+export default ImagePicker
